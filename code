@@ -1,41 +1,22 @@
 ##random number generator
 
 #include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#define ESC 27
 
 int main()
+
 {
-    int brojevi[80],n,i;
-
-    printf("Koliko brojeva zelite unijeti? n = \n");
-    scanf("%d",&n);
-
-    if(n<1 || n>80)
+    int x;
+    char izlaz;
+    srand((unsigned)time(NULL));
+    do
     {
-        printf("Pogresan unos. n mora biti veci od jedan i manji ili jednak 80");
-    }
-    else
-    {
-        for (i=0;i<n;i++)
-        {
-            printf("Unesite broj: \n");
-            scanf("%d",&brojevi[i]);
-            if(brojevi[i]<-99 || brojevi[i]>99)
-            {
-                brojevi[i]=0;
-            }
-        }
-
-        printf("Podaci nakon zamjena sa nulom:\n");
-        for (i=0;i<n;i++)
-        {
-            printf("%d ",brojevi[i]);
-            if((i+1)%5==0)
-            {
-                printf("\n");
-            }
-        }
-    }
-
-
+        printf("Press a key: ");
+        izlaz=_getch();
+        x=rand()%6+1;
+        printf("\nThe random number is %d\n",x);
+    }while(izlaz!=ESC);
     return 0;
 }
