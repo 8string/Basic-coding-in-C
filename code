@@ -110,3 +110,64 @@ int main()
 }
 
 
+## a two dimensional field code
+#include<stdio.h>
+
+int main()
+{
+    int brojevi[10][10],r,s,br,i,j,najveci,najmanji,pom;
+    while(1)
+    {
+        printf("Unesite broj redova: \n");
+        scanf("%d",&r);
+        printf("Unesite broj stupaca: \n");
+        scanf("%d",&s);
+        if(r<0 || r>10 || s<0 || s>10)
+        {
+            printf("Pogresan unos");
+            break;
+        }
+        else
+        {
+            brojevi[10][10]=brojevi[r][s];
+            for(i=0;i<r;i++)
+            {
+                for(j=0;j<s;j++)
+                {
+                    printf("Unesite broj: \n");
+                    scanf("%d",&br);
+                    brojevi[i][j]=br;
+                }
+            }
+        }
+        for(i=0;i<r;i++)
+        {
+            for(j=0;j<s;j++)
+            {
+                najveci=brojevi[i][0];
+                najmanji=brojevi[i][1];
+                if(najmanji>najveci && najmanji!=najveci)
+                {
+                    pom=najveci;
+                    najveci=najmanji;
+                    najmanji=pom;
+                }
+                if(najmanji>brojevi[i][j])
+                {
+                    najmanji=brojevi[i][j];
+                }
+                else if(najveci<brojevi[i][j])
+                {
+                    najveci=brojevi[i][j];
+                }
+            }
+            printf("%d. redak \n",i+1);
+            printf("Najmanji broj: %d\n",najmanji);
+            printf("Najveci broj: %d\n",najveci);
+        }
+
+    break;
+}
+}
+
+
