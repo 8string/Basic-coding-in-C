@@ -1,0 +1,41 @@
+##random number generator
+
+#include<stdio.h>
+
+int main()
+{
+    int brojevi[80],n,i;
+
+    printf("Koliko brojeva zelite unijeti? n = \n");
+    scanf("%d",&n);
+
+    if(n<1 || n>80)
+    {
+        printf("Pogresan unos. n mora biti veci od jedan i manji ili jednak 80");
+    }
+    else
+    {
+        for (i=0;i<n;i++)
+        {
+            printf("Unesite broj: \n");
+            scanf("%d",&brojevi[i]);
+            if(brojevi[i]<-99 || brojevi[i]>99)
+            {
+                brojevi[i]=0;
+            }
+        }
+
+        printf("Podaci nakon zamjena sa nulom:\n");
+        for (i=0;i<n;i++)
+        {
+            printf("%d ",brojevi[i]);
+            if((i+1)%5==0)
+            {
+                printf("\n");
+            }
+        }
+    }
+
+
+    return 0;
+}
